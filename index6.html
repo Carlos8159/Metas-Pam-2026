@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANO ANUAL DE METAS 2026 ZACA DAP - IFPA</title>
+    <style>
+        :root {
+            --ifpa-verde: #008000;
+            --ifpa-vermelho: #cc0000;
+            --ifpa-cinza: #f4f4f4;
+            --cor-texto: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--ifpa-cinza);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-top: 8px solid var(--ifpa-verde);
+        }
+        .header {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .header p { margin: 5px 0 0 0; font-size: 13px; color: #bbb; }
+        
+        .indicador-banner {
+            border-left: 4px solid var(--ifpa-verde);
+            padding: 12px 15px;
+            margin: 20px 30px 0 30px;
+            font-size: 13px;
+        }
+        .banner-verde {
+            background-color: #eef7ee;
+            border-left-color: var(--ifpa-verde);
+            color: #1e461e;
+        }
+        .banner-vermelho {
+            background-color: #fbeeee;
+            border-left-color: var(--ifpa-vermelho);
+            color: #611a1a;
+            margin-top: 35px;
+        }
+
+        .form-body { padding: 30px; }
+        .form-group { margin-bottom: 35px; }
+        .secao-divisora {
+            border-top: 2px dashed #ddd;
+            margin-top: 40px;
+            padding-top: 30px;
+        }
+        
+        label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--cor-texto); font-size: 14px; line-height: 1.4; }
+        .required { color: var(--ifpa-vermelho); margin-left: 3px; }
+        .help-text { font-size: 12px; color: #666; font-weight: normal; margin-top: 4px; display: block; }
+        
+        input[type="email"], input[type="number"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            background-color: #fff;
+        }
+        textarea { resize: vertical; min-height: 90px; }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .option-item {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #fafafa;
+            user-select: none;
+        }
+        .option-item input { display: none; }
+        .option-item:hover { background-color: #f0f0f0; }
+        
+        .option-item.selected {
+            background-color: var(--ifpa-verde) !important;
+            color: white !important;
+            border-color: var(--ifpa-verde) !important;
+            font-weight: bold;
+        }
+        
+        .resultado-box {
+            background-color: #f9f9f9;
+            border: 2px dashed #ddd;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .resultado-titulo { font-size: 14px; color: #444; font-weight: bold; margin-bottom: 10px; }
+        .resultado-valor { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 5px; }
+        .status-badge {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #888;
+        }
+        
+        .btn-submit-container {
+            text-align: center;
+            margin-top: 40px;
+            border-top: 2px solid #eee;
+            padding-top: 25px;
+        }
+        .btn-submit {
+            background-color: var(--ifpa-verde);
+            color: white;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .btn-submit:hover { background-color: #006400; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            color: #777;
+            border-top: 1px solid #eee;
+            background-color: #fafafa;
+            line-height: 1.5;
+        }
+        .success-box { text-align: center; padding: 50px 20px; color: var(--ifpa-verde); }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainContainer">
+    <div class="header">
+        <h1>PLANO ANUAL DE METAS 2026</h1>
+        <p>ZACA DAP - INSTITUTO FEDERAL DO PARÁ</p>
+    </div>
+
+    <form id="pdiForm" onsubmit="finalizarFormulario(event)">
+        <div class="indicador-banner banner-verde">
+            <strong>INDICADOR VIGENTE:</strong> SF2.2 - Percentual de processos de aquisição previstos no PCA. (Meta: 80%)
+        </div>
+
+        <div class="form-body">
+            
+            <!-- PERGUNTA 2 -->
+            <div class="form-group">
+                <label for="iniciativa1">2. Iniciativa Estratégica 1 - Estruturação e manutenção da infraestrutura administrativa e pedagógica, incluindo videomonitoramento, climatização, materiais de consumo, equipamentos, melhorias prediais e aquisição de alimentos com recursos do PNAE. <span class="required">*</span>
+                    <span class="help-text">(Escreva o resultado parcial abaixo acerca da atividade no período descrevendo se foi possível realizá-la ou não, justificando os motivos ou dificuldades com pelo menos 75 caracteres).</span>
+                </label>
+                <textarea id="iniciativa1" required minlength="75" placeholder="Escreva sua justificativa analítica aqui..." oninput="contarCaracteres(this, 'charCount')"></textarea>
+                <small id="charCount" style="color: var(--ifpa-vermelho); font-weight: bold;">0 / 75 caracteres obrigatórios</small>
+            </div>
+
+            <!-- PERGUNTA 3 -->
+            <div class="form-group">
+                <label>3. Qual percentual você considera que foi trabalhado relação a iniciativa estratégica 1 acima? <span class="required">*</span></label>
+                <div class="options-grid" id="grid_ini1">
+                    <script>
+                        for(let i=0; i<=100; i+=10) {
+                            document.write(`<div class="option-item" onclick="selectGridOption(this, 'p_ini1')"><input type="radio" name="p_ini1" value="${i}" required>${i}%</div>`);
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 4 -->
+            <div class="form-group">
+                <label for="risco1">4. Sobre o risco (Limitações orçamentárias, cortes orçamentários, surgimentos de demandas mais urgentes que possam limitar o desenvolvimento das atividades planejadas) e a ação de controle (Adiantar os processos de aquisição, visando aporte orçamentário da Reitoria), comente se o risco aconteceu ou não e se a ação foi trabalhada: <span class="required">*</span>
+                    <span class="help-text">Risco (evento que impediria a execução da iniciativa estratégica 1).</span>
+                </label>
+                <textarea id="risco1" required placeholder="Escreva seu comentário analítico sobre o risco..."></textarea>
+            </div>
+
+            <!-- PERGUNTA 5 -->
+            <div class="form-group">
+                <label>5. Qual percentual da ação de controle (Adiantar os processos de aquisição, visando aporte orçamentário da Reitoria) você considera que foi trabalhado para minimizar o risco? <span class="required">*</span></label>
+                <div class="options-grid" id="grid_controle1">
+                    <script>
+                        for(let i=0; i<=100; i+=10) {
+                            document.write(`<div class="option-item" onclick="selectGridOption(this, 'p_controle1')"><input type="radio" name="p_controle1" value="${i}" required>${i}%</div>`);
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <!-- PERGUNTAS DE CÁLCULO (6 e 7) E VISOR (8) -->
+            <div class="form-group secao-divisora">
+                <label for="previstos">6. Para efeito do cálculo do resultado parcial do indicador precisamos que você nos informe o Nº de processos de aquisição previstos no PCA (Plano de Contratações Anual) <span class="required">*</span></label>
+                <input type="number" id="previstos" min="0" required placeholder="0" oninput="calcularMetas()">
+            </div>
+
+            <div class="form-group">
+                <label for="totais">7. Para efeito do cálculo do resultado parcial do indicador precisamos que você nos informe o Nº total de processos de aquisição <span class="required">*</span></label>
+                <input type="number" id="totais" min="0" required placeholder="0" oninput="calcularMetas()">
+            </div>
+
+            <!-- VISOR GRÁFICO TOTALMENTE RECUPERADO -->
+            <div id="boxResultado" class="resultado-box">
+                <div class="resultado-titulo">8. Resultado do Indicador (SF2.2)</div>
+                <div id="txtResultado" class="resultado-valor">0,00%</div>
+
